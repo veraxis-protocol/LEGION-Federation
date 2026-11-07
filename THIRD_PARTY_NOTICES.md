@@ -9,6 +9,6 @@
 | `jsonschema` | Schema validation | MIT | pip dependency |
 | NVIDIA NIM API (`nvidia/nemotron-3.5-lightning-30b-a3b`) | Model-driven agent decisions | Provider terms | Remote API; key read from a local file, never committed |
 
-**Whole-stack status:** the two Apache-2.0 overlays are open source; the runnable demonstration requires the
-PolyForm-Noncommercial LEGION Core, so the complete runnable stack is NOT OSI open source. Hackathon
-eligibility on that point is an explicit open question (see PAYPAL_ELIGIBILITY.md in LEGION-Marketplace).
+**Whole-stack status:** LEGION-Federation, LEGION-Marketplace and LEGION Core are all PolyForm Noncommercial 1.0.0.
+No part of the runnable stack is OSI open source. Any hackathon rule requiring open-source code is NOT met
+(see PAYPAL_ELIGIBILITY.md in LEGION-Marketplace).

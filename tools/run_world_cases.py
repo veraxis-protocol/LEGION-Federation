@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 """WO-LMF-005 harness: run the preregistered 13 x 4 federated world cases.
 
 Per world, three OS processes: the operator owner peer (hosts the pinned LEGION world), this requester

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 """WO-LMF-001: every schema validates a sample, survives sign/serialize/parse/verify, and rejects tampering."""
 import json
 import os

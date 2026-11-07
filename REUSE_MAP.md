@@ -15,6 +15,6 @@ Pinned revisions: see `SOURCE_PINS.json`. "Invoked" = imported/executed at run t
 | LEGION-Commerce `commerce_bridge` (qualified BCh, Lean decider) | Invoked only in WO-LMF-007 | Exact-action Lean T for each capture (sandbox-demo profile) |
 | ZTL / ztl-swarm / ztl-stand | Provenance only | Not invoked today |
 
-New (Apache-2.0) mechanisms with NO Core equivalent: peer identity registry, disclosure grants & policy, peer-request
+New (PolyForm NC, Veraxis-authored) mechanisms with NO Core equivalent: peer identity registry, disclosure grants & policy, peer-request
 admission (edge wrapper, tested not proved), coalition contract versioning, owner commitments, marketplace registry,
 coalition solver, feasibility oracle, comparators, federated Judge.

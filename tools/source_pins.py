@@ -1,5 +1,5 @@
-# SPDX-License-Identifier: Apache-2.0
-"""Generate SOURCE_PINS.json from local read-only checkouts of the external (non-Apache) sources.
+# SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
+"""Generate SOURCE_PINS.json from local read-only checkouts of the external (external) sources.
 
 Usage: python tools/source_pins.py <LEGION checkout> <LEGION-Formal-Core checkout> <LEGION-Commerce checkout> <out>
 Nothing is copied: only revisions and SHA-256 of files this overlay reads or calls at runtime.
@@ -43,7 +43,7 @@ def main(legion, formal, commerce, out):
         "schema": "lmf.source-pins.v1",
         "generated_at": time.time(),
         "policy": "External sources are read or invoked at runtime from these pinned checkouts. No PolyForm "
-                  "Noncommercial source is copied into this Apache-2.0 repository.",
+                  "Noncommercial source is copied into this repository.",
         "sources": {
             "LEGION": pin(legion, "https://github.com/veraxis-protocol/LEGION", legion_files,
                           expected="d083c44af2526e38068e0220891cd0bb5fce52af"),

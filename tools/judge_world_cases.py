@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 """Independent, read-only Judge for the federated world cases (separate OS process).
 
 It never writes to the world. Inputs: the preregistered case file, the operator's read-only reader

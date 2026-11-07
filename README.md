@@ -23,6 +23,5 @@ The 13-world harness needs a separately obtained LEGION Core checkout at the pin
 see `SOURCE_PINS.json`): `python tools/run_world_cases.py --cases <FED_WORLD_CASES.json> --core <LEGION> --out <dir>`.
 
 ## License
-Apache-2.0 for the files in this repository only. The runtime dependency LEGION Core is **not** open source
-(PolyForm Noncommercial 1.0.0); the complete runnable stack is therefore not OSI open source. See `NOTICE`,
-`THIRD_PARTY_NOTICES.md`, `PROVENANCE.md`.
+PolyForm Noncommercial License 1.0.0 (owner decision, 2026-11-07), the same license as LEGION Core. Noncommercial use
+only; commercial use requires a separate license from Veraxis. This is **not** an OSI open-source license. See `NOTICE`.

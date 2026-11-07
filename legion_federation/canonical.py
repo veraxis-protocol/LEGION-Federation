@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
 # Copyright 2026 Veraxis. Independently authored; contains no LEGION Core source.
 """Canonical JSON, hashing and time helpers shared by every Federation component."""
 import hashlib
