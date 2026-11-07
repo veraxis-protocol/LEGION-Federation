@@ -1,0 +1,88 @@
+{
+  "$id": "https://github.com/veraxis-protocol/LEGION-Federation/schemas/OwnerCommitment.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "commitment_id": {
+      "maxLength": 128,
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9:_.\\-]+$",
+      "type": "string"
+    },
+    "contract_id": {
+      "maxLength": 128,
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9:_.\\-]+$",
+      "type": "string"
+    },
+    "contract_version_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "decision": {
+      "enum": [
+        "ACCEPT",
+        "REJECT"
+      ]
+    },
+    "epoch": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "expires_at": {
+      "maximum": 4000000000.0,
+      "minimum": 1700000000.0,
+      "type": "number"
+    },
+    "issued_at": {
+      "maximum": 4000000000.0,
+      "minimum": 1700000000.0,
+      "type": "number"
+    },
+    "max_amount_cents": {
+      "maximum": 1000000000,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "model_decision_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "owner_id": {
+      "pattern": "^owner:[a-z0-9\\-]{2,40}$",
+      "type": "string"
+    },
+    "rationale": {
+      "maxLength": 240,
+      "type": "string"
+    },
+    "schema": {
+      "const": "lmf.owner-commitment.v1"
+    },
+    "scope": {
+      "items": {
+        "maxLength": 128,
+        "minLength": 3,
+        "pattern": "^[A-Za-z0-9:_.\\-]+$",
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema",
+    "commitment_id",
+    "owner_id",
+    "contract_id",
+    "contract_version_hash",
+    "decision",
+    "scope",
+    "max_amount_cents",
+    "epoch",
+    "issued_at",
+    "expires_at"
+  ],
+  "title": "OwnerCommitment",
+  "type": "object"
+}

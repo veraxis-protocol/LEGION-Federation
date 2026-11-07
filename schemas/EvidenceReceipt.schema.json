@@ -1,0 +1,71 @@
+{
+  "$id": "https://github.com/veraxis-protocol/LEGION-Federation/schemas/EvidenceReceipt.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "action": {
+      "type": "string"
+    },
+    "command_id": {
+      "maxLength": 128,
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9:_.\\-]+$",
+      "type": "string"
+    },
+    "contract_version_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "effect_id": {
+      "type": "string"
+    },
+    "issued_at": {
+      "maximum": 4000000000.0,
+      "minimum": 1700000000.0,
+      "type": "number"
+    },
+    "issuer_owner_id": {
+      "pattern": "^owner:[a-z0-9\\-]{2,40}$",
+      "type": "string"
+    },
+    "mode": {
+      "enum": [
+        "SIMULATED",
+        "REAL_SANDBOX"
+      ]
+    },
+    "obligation_id": {
+      "maxLength": 128,
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9:_.\\-]+$",
+      "type": "string"
+    },
+    "readback_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "receipt_id": {
+      "maxLength": 128,
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9:_.\\-]+$",
+      "type": "string"
+    },
+    "schema": {
+      "const": "lmf.evidence-receipt.v1"
+    }
+  },
+  "required": [
+    "schema",
+    "receipt_id",
+    "issuer_owner_id",
+    "contract_version_hash",
+    "obligation_id",
+    "action",
+    "command_id",
+    "effect_id",
+    "readback_sha256",
+    "mode",
+    "issued_at"
+  ],
+  "title": "EvidenceReceipt",
+  "type": "object"
+}

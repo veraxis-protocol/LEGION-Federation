@@ -1,0 +1,169 @@
+{
+  "generated_at": 1794066258.2322927,
+  "notes": {
+    "LEGION-Commerce": "Authority branch claude/wo-com-authority-005 remote tip 228899ab5b27881a324123a371336177992b1bd4 (unchanged since last inspection). The local checkout pinned here may be a later local branch; see revision field.",
+    "LEGION-Formal-Core": "tag v1.0.0 (annotated tag object 1fb85527a4f25a5930feccb75a8b6808d34d5797) peels to f5ea79c. Its README names the qualified LEGION runtime d9d38cd6fd9e93e002b0b5d5135377ce1d33d8c8 (branch formal-core-r2, not on the public LEGION main)."
+  },
+  "policy": "External sources are read or invoked at runtime from these pinned checkouts. No PolyForm Noncommercial source is copied into this Apache-2.0 repository.",
+  "schema": "lmf.source-pins.v1",
+  "sources": {
+    "LEGION": {
+      "expected_revision": "d083c44af2526e38068e0220891cd0bb5fce52af",
+      "files": {
+        "LICENSE": {
+          "git_blob": "1a71cb64397535482ff19542d1093c0d4a6442d0",
+          "sha256": "75f5f2ae732cdc31adf8ad90a42ed4ed47476b3f27fcdf90de13e79d6788309d"
+        },
+        "judge/components/judge_s1/legion_judge/core.py": {
+          "git_blob": "48543e6092c73afa77c209d64bec8ec9676fe4fd",
+          "sha256": "35374339f1c2525d784622a3ca8b548cfe71c86178c57f669be12f5e3ebbd902"
+        },
+        "judge/components/struct_adapter.py": {
+          "git_blob": "8141e82a807f42ac2a5ab98439b89cebd7d8b456",
+          "sha256": "013ae7e68bb93e6cbdf7f3568962dd634d33b8294148d831bb8c517b8806b5ff"
+        },
+        "tests/legion_struct/WORLD_DSL.md": {
+          "git_blob": "215b9841732e768e291ec73466d53c7311146ab5",
+          "sha256": "d03e668193fee58c60470755b7ecb6aa46559d102f5d1c45ff5d849b2e566921"
+        },
+        "tests/legion_struct/struct_controller.py": {
+          "git_blob": "dfc55b5ef3098c433ec93da9bef6f7ee615ab8c7",
+          "sha256": "fd45f323b9781369b534597b5a149778a4445e7bd0a302e8edc867426eeae55e"
+        },
+        "tests/legion_struct/struct_plugin.py": {
+          "git_blob": "82628869bb6ed8f3a4510186328cf2665706a5fa",
+          "sha256": "87adc3f501beff296c2da962c2e405b0ab693425eb0265980a8bc2bb46132ea1"
+        },
+        "tests/legion_struct/world_engine.py": {
+          "git_blob": "204b420135541ab9576af36d4324ea53a0582348",
+          "sha256": "1128c2cb243f746eebdd084d2dba8bb3bb806348b7a030339dada7c402ad556b"
+        },
+        "tests/legion_struct/worlds/INDEX.json": {
+          "git_blob": "39573da3c6754d68445f64547eaa87f4b76f1249",
+          "sha256": "23b004bf92baecca92cac79b591927c876dc1602bc77e3e4236da051c1b93973"
+        },
+        "tests/legion_struct/worlds/SYN-GAIA-A2A.world.json": {
+          "git_blob": "ea5aae3de30e4b9eea5c8e45811e3bec1feb74cc",
+          "sha256": "b9109ed878c979aade0eeb81fc6c59a3f1cec9191cb7d5b1a7accc1fbeef9233"
+        },
+        "tests/legion_struct/worlds/SYN-GAIA-ADA.world.json": {
+          "git_blob": "8ea48bc4a9662a568594ef8970922be622351d2d",
+          "sha256": "479913b23f1ecb28e5ef8b7f753ad68f56d2418d582602ad1d3d643574d35172"
+        },
+        "tests/legion_struct/worlds/SYN-GAIA-AMB.world.json": {
+          "git_blob": "4ec28c61baf25d8ab1da13d63fe838213c22b37d",
+          "sha256": "9f929f54f619772e3be904c524df53a026c19c59f0e3181c1d7a67d89b4b2eb1"
+        },
+        "tests/legion_struct/worlds/SYN-GAIA-EXE.world.json": {
+          "git_blob": "cd78f8f1b0ed9480430efc82f5f52785e94288ea",
+          "sha256": "5a3b50aea2dce05ab55043f9df19eae5a30bb0c0f0b91a894e59d02557248520"
+        },
+        "tests/legion_struct/worlds/SYN-GAIA-NOI.world.json": {
+          "git_blob": "0a8bbc033846d63f771c02c825ec3284a9737603",
+          "sha256": "3113ac6c6b85f32154b677cb0a50118f9720b2e67f147a1993493713c7d2f313"
+        },
+        "tests/legion_struct/worlds/SYN-GAIA-SEA.world.json": {
+          "git_blob": "96237f61454729f970c89524339bc074bc164d2e",
+          "sha256": "cd0a1bac8e8b3c018441afecbad9cec1a55ae1f7445b9b791bcaa1fb37f019af"
+        },
+        "tests/legion_struct/worlds/SYN-GAIA-TIM.world.json": {
+          "git_blob": "ae54bda18d0d3369890b518f5ce89bb90b107d31",
+          "sha256": "0639867fe731b9d4cc12eb222a6e5b90c2101a25d6e40fb32896b8c49c9dc378"
+        },
+        "tests/legion_struct/worlds/SYN-OTEL-01.world.json": {
+          "git_blob": "c71f469fd86ce12c6804bfd3e67b239f3b166031",
+          "sha256": "9661c195582585e94d62e1e988fa4481174d4946b904a7d162e2cb7690e46e31"
+        },
+        "tests/legion_struct/worlds/SYN-OTEL-02.world.json": {
+          "git_blob": "93bf0a90015c3b0ee9bdb5c2cd04cb6ef61c790d",
+          "sha256": "5486bd0eb556739e57755c0470feff223e78a3d01951ddbe8aa1da136c68cee4"
+        },
+        "tests/legion_struct/worlds/SYN-OTEL-03.world.json": {
+          "git_blob": "2a9883efb66bf1a675102fb173e99c70cca562f6",
+          "sha256": "7d9808320221e0fb0fd4a892cf0fc85a76b4b5056ae094e5c47e136073e129ea"
+        },
+        "tests/legion_struct/worlds/SYN-OTEL-04.world.json": {
+          "git_blob": "6326d0d459d4381efe03a8e9bc42e5285c71baf1",
+          "sha256": "63e7b9c088411a66113d8c5172dae9bec42452e43a7988d555c986a055483904"
+        },
+        "tests/legion_struct/worlds/SYN-OTEL-05.world.json": {
+          "git_blob": "c77456ace407492ced9d0be3fcab87e3fd9099f7",
+          "sha256": "396148e9b72648b982e6e42b2dce92f1b7cd20f6418a4d4f707d3a1878822cb3"
+        },
+        "tests/legion_struct/worlds/SYN-OTEL-06.world.json": {
+          "git_blob": "5f06ba6c9cc33f4d3424d5f91a44f565f9292dd3",
+          "sha256": "5034154477dc4ba5a3a857ee0646170d63059fb45985e4ffa89d42431909c0e7"
+        }
+      },
+      "license_first_line": "PolyForm Noncommercial License 1.0.0",
+      "revision": "d083c44af2526e38068e0220891cd0bb5fce52af",
+      "revision_matches_expected": true,
+      "url": "https://github.com/veraxis-protocol/LEGION"
+    },
+    "LEGION-Commerce": {
+      "expected_revision": null,
+      "files": {
+        "commerce_adapter/approval.py": {
+          "git_blob": "ed353eaf9562110f4f77ce5525b222be114173cb",
+          "sha256": "03fd03bde61168bb9b0f6526824a18290ec5a57b53df27d8cb798fa3f0d10937"
+        },
+        "commerce_adapter/gateway.py": {
+          "git_blob": "9c90004351471ee91e41c358e883420137a3130c",
+          "sha256": "865928f3e48aff2afaa6d49b421046ad7a9f7a05050ef3d67e92a8f742473f3f"
+        },
+        "commerce_adapter/paypal.py": {
+          "git_blob": "a943a5a149f1cfb0ec3bae7013c5034013eb66ab",
+          "sha256": "9e0f582ce01e261fca18ab4b5273755f122ef33c52cf4754f5d6083d6c7dba4c"
+        },
+        "commerce_adapter/readback.py": {
+          "git_blob": "30daef69d4ae5a70a8168093f892a7e566a05f64",
+          "sha256": "66c38645f5aadaa7447800b14d3245e8a4657d63ec0944643460ef0a09c5a5e7"
+        },
+        "commerce_bridge/__init__.py": {
+          "git_blob": "a8ab5b53f626c850f12f34603194eb1030e98284",
+          "sha256": "a0da880a13feead9e47252ec193ae868b716b057602431a3a6e2af393f685ec5"
+        }
+      },
+      "license_first_line": "LEGION-Commerce \u2014 WO-COM-A04",
+      "revision": "228899ab5b27881a324123a371336177992b1bd4",
+      "revision_matches_expected": true,
+      "url": "https://github.com/veraxis-protocol/LEGION-Commerce"
+    },
+    "LEGION-Formal-Core": {
+      "expected_revision": "f5ea79ca438749e2e7282727a75fd891df0bd371",
+      "files": {
+        "LICENSE": {
+          "git_blob": "1a71cb64397535482ff19542d1093c0d4a6442d0",
+          "sha256": "ffcca38841adb694b6f380647e15f17c446a4d1656fed51a1e2041d064c94cc8"
+        },
+        "PROOF_MANIFEST.json": {
+          "git_blob": "f70bdbaf1b761b668ea35c54172556efb9e7f1f3",
+          "sha256": "8010fd82ac0c53c63e57dd597f311cf121cdda3db497b02f7b230b4941d21cd8"
+        },
+        "README.md": {
+          "git_blob": "e2c3c42506001169295b7e0dee2d2b733f571e70",
+          "sha256": "a9bb0853c9ac0fb457dd27fc3e542001f63dd60caf8e58579e2b0a28ecbf1e66"
+        }
+      },
+      "license_first_line": "PolyForm Noncommercial License 1.0.0",
+      "revision": "f5ea79ca438749e2e7282727a75fd891df0bd371",
+      "revision_matches_expected": true,
+      "url": "https://github.com/veraxis-protocol/LEGION-Formal-Core"
+    }
+  },
+  "worlds": [
+    "SYN-GAIA-A2A.world.json",
+    "SYN-GAIA-ADA.world.json",
+    "SYN-GAIA-AMB.world.json",
+    "SYN-GAIA-EXE.world.json",
+    "SYN-GAIA-NOI.world.json",
+    "SYN-GAIA-SEA.world.json",
+    "SYN-GAIA-TIM.world.json",
+    "SYN-OTEL-01.world.json",
+    "SYN-OTEL-02.world.json",
+    "SYN-OTEL-03.world.json",
+    "SYN-OTEL-04.world.json",
+    "SYN-OTEL-05.world.json",
+    "SYN-OTEL-06.world.json"
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "$id": "https://github.com/veraxis-protocol/LEGION-Federation/schemas/CoalitionContract.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "contract_id": {
+      "maxLength": 128,
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9:_.\\-]+$",
+      "type": "string"
+    },
+    "created_at": {
+      "maximum": 4000000000.0,
+      "minimum": 1700000000.0,
+      "type": "number"
+    },
+    "currency": {
+      "const": "USD"
+    },
+    "deadline": {
+      "maximum": 4000000000.0,
+      "minimum": 1700000000.0,
+      "type": "number"
+    },
+    "design_id": {
+      "type": "string"
+    },
+    "mission_ids": {
+      "items": {
+        "maxLength": 128,
+        "minLength": 3,
+        "pattern": "^[A-Za-z0-9:_.\\-]+$",
+        "type": "string"
+      },
+      "minItems": 2,
+      "type": "array"
+    },
+    "partial_failure_policy": {
+      "maxLength": 240,
+      "type": "string"
+    },
+    "parties": {
+      "items": {
+        "properties": {
+          "obligations": {
+            "items": {
+              "properties": {
+                "amount_cents": {
+                  "maximum": 1000000000,
+                  "minimum": 0,
+                  "type": "integer"
+                },
+                "counterparty": {
+                  "type": "string"
+                },
+                "kind": {
+                  "enum": [
+                    "pay",
+                    "receive_units",
+                    "manufacture",
+                    "qualify",
+                    "ship"
+                  ]
+                },
+                "obligation_id": {
+                  "maxLength": 128,
+                  "minLength": 3,
+                  "pattern": "^[A-Za-z0-9:_.\\-]+$",
+                  "type": "string"
+                },
+                "quantity": {
+                  "minimum": 0,
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "obligation_id",
+                "kind"
+              ],
+              "type": "object"
+            },
+            "minItems": 1,
+            "type": "array"
+          },
+          "owner_id": {
+            "pattern": "^owner:[a-z0-9\\-]{2,40}$",
+            "type": "string"
+          },
+          "peer_id": {
+            "pattern": "^peer:[a-z0-9\\-]{2,40}$",
+            "type": "string"
+          },
+          "role": {
+            "enum": [
+              "buyer",
+              "factory",
+              "engineer",
+              "operator",
+              "requester",
+              "marketplace",
+              "judge"
+            ]
+          }
+        },
+        "required": [
+          "owner_id",
+          "peer_id",
+          "role",
+          "obligations"
+        ],
+        "type": "object"
+      },
+      "maxItems": 20,
+      "minItems": 2,
+      "type": "array"
+    },
+    "payments": {
+      "items": {
+        "properties": {
+          "amount_cents": {
+            "maximum": 1000000000,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "payee": {
+            "pattern": "^owner:[a-z0-9\\-]{2,40}$",
+            "type": "string"
+          },
+          "payer": {
+            "pattern": "^owner:[a-z0-9\\-]{2,40}$",
+            "type": "string"
+          },
+          "purpose": {
+            "maxLength": 240,
+            "type": "string"
+          }
+        },
+        "required": [
+          "payer",
+          "payee",
+          "amount_cents",
+          "purpose"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "prev_version_hash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "price_basis": {
+      "type": "object"
+    },
+    "qualification": {
+      "type": "object"
+    },
+    "quantity": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "schema": {
+      "const": "lmf.coalition-contract.v1"
+    },
+    "spec_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "version": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema",
+    "contract_id",
+    "version",
+    "prev_version_hash",
+    "mission_ids",
+    "parties",
+    "payments",
+    "quantity",
+    "spec_hash",
+    "design_id",
+    "qualification",
+    "deadline",
+    "partial_failure_policy",
+    "currency",
+    "created_at"
+  ],
+  "title": "CoalitionContract",
+  "type": "object"
+}

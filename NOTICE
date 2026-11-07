@@ -1,0 +1,10 @@
+LEGION-Federation
+Copyright 2026 Veraxis
+
+This product includes software developed by Veraxis and licensed under the Apache License, Version 2.0,
+which applies ONLY to the files in this repository that were independently authored for it.
+
+This repository does NOT contain, and its license does NOT cover, LEGION Core (veraxis-protocol/LEGION),
+LEGION-Formal-Core or LEGION-Commerce. Those are separate works with their own terms (LEGION and
+LEGION-Formal-Core: PolyForm Noncommercial 1.0.0). They are invoked at run time from separately obtained,
+pinned checkouts listed in SOURCE_PINS.json.

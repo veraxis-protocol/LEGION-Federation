@@ -1,0 +1,106 @@
+{
+  "$id": "https://github.com/veraxis-protocol/LEGION-Federation/schemas/Opportunity.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "available_capacity": {
+      "maximum": 100000,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "class": {
+      "pattern": "^[a-z0-9\\-]{2,40}$",
+      "type": "string"
+    },
+    "description": {
+      "maxLength": 240,
+      "type": "string"
+    },
+    "epoch": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "grant_id": {
+      "maxLength": 128,
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9:_.\\-]+$",
+      "type": "string"
+    },
+    "intent_id": {
+      "maxLength": 128,
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9:_.\\-]+$",
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "demand",
+        "supply",
+        "service"
+      ]
+    },
+    "max_payment_cents": {
+      "maximum": 1000000000,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "minimum_quantity": {
+      "maximum": 100000,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "owner_id": {
+      "pattern": "^owner:[a-z0-9\\-]{2,40}$",
+      "type": "string"
+    },
+    "owner_pseudonym": {
+      "pattern": "^[A-Za-z0-9\\-]{2,32}$",
+      "type": "string"
+    },
+    "peer_id": {
+      "pattern": "^peer:[a-z0-9\\-]{2,40}$",
+      "type": "string"
+    },
+    "quantity": {
+      "maximum": 100000,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "schema": {
+      "const": "lmf.opportunity.v1"
+    },
+    "service": {
+      "pattern": "^[a-z\\-]{2,40}$",
+      "type": "string"
+    },
+    "spec_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "valid_until": {
+      "maximum": 4000000000.0,
+      "minimum": 1700000000.0,
+      "type": "number"
+    },
+    "version": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema",
+    "intent_id",
+    "owner_id",
+    "owner_pseudonym",
+    "peer_id",
+    "kind",
+    "class",
+    "spec_hash",
+    "valid_until",
+    "epoch",
+    "grant_id",
+    "version"
+  ],
+  "title": "Opportunity",
+  "type": "object"
+}

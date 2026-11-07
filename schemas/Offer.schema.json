@@ -1,0 +1,111 @@
+{
+  "$id": "https://github.com/veraxis-protocol/LEGION-Federation/schemas/Offer.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "basis": {
+      "items": {
+        "maxLength": 128,
+        "minLength": 3,
+        "pattern": "^[A-Za-z0-9:_.\\-]+$",
+        "type": "string"
+      },
+      "maxItems": 20,
+      "type": "array"
+    },
+    "conditions": {
+      "items": {
+        "maxLength": 240,
+        "type": "string"
+      },
+      "maxItems": 10,
+      "type": "array"
+    },
+    "epoch": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "expires_at": {
+      "maximum": 4000000000.0,
+      "minimum": 1700000000.0,
+      "type": "number"
+    },
+    "from_owner": {
+      "pattern": "^owner:[a-z0-9\\-]{2,40}$",
+      "type": "string"
+    },
+    "issued_at": {
+      "maximum": 4000000000.0,
+      "minimum": 1700000000.0,
+      "type": "number"
+    },
+    "lines": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "amount_cents": {
+            "maximum": 1000000000,
+            "minimum": 0,
+            "type": "integer"
+          },
+          "design_id": {
+            "pattern": "^[A-Za-z0-9\\-]{2,40}$",
+            "type": "string"
+          },
+          "item": {
+            "pattern": "^[a-z0-9\\-]{2,40}$",
+            "type": "string"
+          },
+          "quantity": {
+            "minimum": 1,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "item",
+          "quantity",
+          "amount_cents"
+        ],
+        "type": "object"
+      },
+      "maxItems": 10,
+      "minItems": 1,
+      "type": "array"
+    },
+    "offer_id": {
+      "maxLength": 128,
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9:_.\\-]+$",
+      "type": "string"
+    },
+    "offer_version": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "schema": {
+      "const": "lmf.offer.v1"
+    },
+    "supersedes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "to": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema",
+    "offer_id",
+    "from_owner",
+    "to",
+    "basis",
+    "lines",
+    "epoch",
+    "issued_at",
+    "expires_at",
+    "offer_version"
+  ],
+  "title": "Offer",
+  "type": "object"
+}

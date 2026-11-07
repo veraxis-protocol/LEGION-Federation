@@ -1,0 +1,63 @@
+{
+  "$id": "https://github.com/veraxis-protocol/LEGION-Federation/schemas/Judgement.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "checks": {
+      "items": {
+        "required": [
+          "check",
+          "pass"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "evidence_sha256": {
+      "type": "object"
+    },
+    "issued_at": {
+      "maximum": 4000000000.0,
+      "minimum": 1700000000.0,
+      "type": "number"
+    },
+    "judge_process": {
+      "type": "object"
+    },
+    "judgement_id": {
+      "maxLength": 128,
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9:_.\\-]+$",
+      "type": "string"
+    },
+    "mission_id": {
+      "maxLength": 128,
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9:_.\\-]+$",
+      "type": "string"
+    },
+    "schema": {
+      "const": "lmf.judgement.v1"
+    },
+    "verdict": {
+      "enum": [
+        "PASS_COMPLETED",
+        "FAIL",
+        "SAFE_STOP",
+        "INDETERMINATE",
+        "INVALID_TEST"
+      ]
+    }
+  },
+  "required": [
+    "schema",
+    "judgement_id",
+    "mission_id",
+    "verdict",
+    "checks",
+    "evidence_sha256",
+    "judge_process",
+    "issued_at"
+  ],
+  "title": "Judgement",
+  "type": "object"
+}

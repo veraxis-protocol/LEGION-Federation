@@ -1,0 +1,83 @@
+{
+  "$id": "https://github.com/veraxis-protocol/LEGION-Federation/schemas/PeerDescriptor.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "endpoint": {
+      "pattern": "^http://127\\.0\\.0\\.1:[0-9]{2,5}$",
+      "type": "string"
+    },
+    "epoch": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "expires_at": {
+      "maximum": 4000000000.0,
+      "minimum": 1700000000.0,
+      "type": "number"
+    },
+    "issued_at": {
+      "maximum": 4000000000.0,
+      "minimum": 1700000000.0,
+      "type": "number"
+    },
+    "owner_id": {
+      "pattern": "^owner:[a-z0-9\\-]{2,40}$",
+      "type": "string"
+    },
+    "owner_pseudonym": {
+      "pattern": "^[A-Za-z0-9\\-]{2,32}$",
+      "type": "string"
+    },
+    "peer_id": {
+      "pattern": "^peer:[a-z0-9\\-]{2,40}$",
+      "type": "string"
+    },
+    "policy_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "registered_workers": {
+      "maximum": 100,
+      "minimum": 1,
+      "type": "integer"
+    },
+    "role": {
+      "enum": [
+        "buyer",
+        "factory",
+        "engineer",
+        "operator",
+        "requester",
+        "marketplace",
+        "judge"
+      ]
+    },
+    "schema": {
+      "const": "lmf.peer-descriptor.v1"
+    },
+    "signing_key_id": {
+      "pattern": "^ed25519:[0-9a-f]{24}$",
+      "type": "string"
+    },
+    "version": {
+      "const": 1
+    }
+  },
+  "required": [
+    "schema",
+    "peer_id",
+    "owner_id",
+    "owner_pseudonym",
+    "role",
+    "endpoint",
+    "signing_key_id",
+    "epoch",
+    "issued_at",
+    "expires_at",
+    "registered_workers",
+    "policy_hash",
+    "version"
+  ],
+  "title": "PeerDescriptor",
+  "type": "object"
+}

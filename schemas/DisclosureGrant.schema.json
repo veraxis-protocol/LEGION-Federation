@@ -1,0 +1,78 @@
+{
+  "$id": "https://github.com/veraxis-protocol/LEGION-Federation/schemas/DisclosureGrant.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "epoch": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "expires_at": {
+      "maximum": 4000000000.0,
+      "minimum": 1700000000.0,
+      "type": "number"
+    },
+    "fields": {
+      "items": {
+        "pattern": "^[a-z_]{2,40}$",
+        "type": "string"
+      },
+      "maxItems": 20,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "grant_id": {
+      "maxLength": 128,
+      "minLength": 3,
+      "pattern": "^[A-Za-z0-9:_.\\-]+$",
+      "type": "string"
+    },
+    "grantor_owner_id": {
+      "pattern": "^owner:[a-z0-9\\-]{2,40}$",
+      "type": "string"
+    },
+    "issued_at": {
+      "maximum": 4000000000.0,
+      "minimum": 1700000000.0,
+      "type": "number"
+    },
+    "nonce": {
+      "pattern": "^[0-9a-f]{16,64}$",
+      "type": "string"
+    },
+    "policy_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "purpose": {
+      "enum": [
+        "discovery",
+        "negotiation",
+        "contract",
+        "execution",
+        "audit"
+      ]
+    },
+    "recipient": {
+      "pattern": "^(peer:[a-z0-9\\-]{2,40}|marketplace|coalition:[A-Za-z0-9\\-]+)$",
+      "type": "string"
+    },
+    "schema": {
+      "const": "lmf.disclosure-grant.v1"
+    }
+  },
+  "required": [
+    "schema",
+    "grant_id",
+    "grantor_owner_id",
+    "recipient",
+    "purpose",
+    "fields",
+    "epoch",
+    "issued_at",
+    "expires_at",
+    "nonce",
+    "policy_hash"
+  ],
+  "title": "DisclosureGrant",
+  "type": "object"
+}
