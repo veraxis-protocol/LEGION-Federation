@@ -12,11 +12,12 @@ ENDPOINT = "https://integrate.api.nvidia.com/v1/chat/completions"
 MODEL = os.environ.get("LMF_NIM_MODEL", "nvidia/nemotron-3.5-lightning-30b-a3b")
 
 
-def chat(messages, schema, temperature=0.3, max_tokens=900, timeout=90, retries=2):
+def chat(messages, schema, temperature=0.3, max_tokens=900, timeout=90, retries=5):
     body = {"model": MODEL, "messages": messages, "max_tokens": max_tokens, "temperature": temperature,
             "chat_template_kwargs": {"enable_thinking": False},
             "response_format": {"type": "json_schema", "json_schema": {"name": "decision", "schema": schema}}}
     last = None
+    errors = []
     for attempt in range(retries + 1):
         key_file = os.environ.get("LMF_NIM_KEY_FILE")
         if not key_file or not os.path.exists(key_file):
@@ -36,5 +37,6 @@ def chat(messages, schema, temperature=0.3, max_tokens=900, timeout=90, retries=
                     "attempt": attempt}
         except (urllib.error.URLError, TimeoutError, KeyError, ValueError) as e:
             last = {"error": type(e).__name__, "status": getattr(e, "code", None), "attempt": attempt}
-            time.sleep(1.5 * (attempt + 1))
-    return {"provider": "NVIDIA_NIM", "model": MODEL, "failed": True, **(last or {})}
+            errors.append({"error": type(e).__name__, "status": getattr(e, "code", None), "attempt": attempt})
+            time.sleep(min(30, 2 ** (attempt + 1)))  # 2,4,8,16,30 s: provider 429/5xx back-off
+    return {"provider": "NVIDIA_NIM", "model": MODEL, "failed": True, "errors": errors, **(last or {})}

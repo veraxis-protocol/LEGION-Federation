@@ -70,7 +70,8 @@ class Hub:
         self.models.emit("MODEL_DECISION", task="choose next contract design", worker_id="hub/planner",
                          provider=r.get("provider"), model=r.get("model"), response_id=r.get("response_id"),
                          usage=r.get("usage"), latency_s=r.get("latency_s"), failed=bool(r.get("failed")),
-                         decision=r.get("parsed"), context_sha256=sha256_hex(context))
+                         decision=r.get("parsed"), context_sha256=sha256_hex(context), http_status=r.get("status"),
+                         provider_errors=r.get("errors"))
         return r.get("parsed") or {"design_id": "NONE", "rationale": "planner unavailable"}, r.get("response_id")
 
     # ------------------------------------------------------------------ steps

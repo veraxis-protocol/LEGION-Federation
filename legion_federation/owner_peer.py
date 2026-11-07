@@ -115,7 +115,8 @@ class Owner:
         rec = {"task": task, "context_sha256": sha256_hex(context), "worker_id": self.workers[0]["worker_id"],
                "provider": r.get("provider"), "model": r.get("model"), "response_id": r.get("response_id"),
                "usage": r.get("usage"), "latency_s": r.get("latency_s"), "failed": bool(r.get("failed")),
-               "decision": r.get("parsed"), "error": r.get("error")}
+               "decision": r.get("parsed"), "error": r.get("error"), "http_status": r.get("status"),
+               "provider_errors": r.get("errors"), "attempt": r.get("attempt")}
         self.models.emit("MODEL_DECISION", **rec)
         return (None if r.get("failed") else r.get("parsed")), rec
 
