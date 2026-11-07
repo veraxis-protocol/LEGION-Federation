@@ -176,6 +176,28 @@ class Owner:
             "readback_sha256": sha256_hex({k: e[k] for k in ("effect_id", "command_id", "tool", "target", "args")}),
             "mode": mode, "issued_at": now()})
 
+    def private_strings(self):
+        out = []
+
+        def walk(v):
+            if isinstance(v, dict):
+                [walk(x) for x in v.values()]
+            elif isinstance(v, list):
+                [walk(x) for x in v]
+            elif isinstance(v, str) and len(v) >= 5:
+                out.append(v)
+        walk({k: v for k, v in self.private.items()
+              if k not in self.dpolicy.public and k not in self.dpolicy.grantable})
+        return out
+
+    def dlp_check(self, body_text):
+        hits = [s for s in self.private_strings() if s in body_text]
+        if hits:
+            self.disc.emit("DISCLOSURE_DECISION", field="outbound-response", recipient="caller", purpose="any",
+                           verdict="F", reason="outbound DLP block: response contained private value(s)",
+                           released_sha256=None, private_class=True, blocked_count=len(hits))
+        return not hits
+
     def value(self, path):
         return self.world.value_at(self.world.state, path)
 
@@ -251,7 +273,12 @@ class Owner:
                   "contract_id": c["contract_id"], "contract_version_hash": chash, "decision": final,
                   "scope": [o["obligation_id"] for o in me["obligations"]], "max_amount_cents": mx, "epoch": self.epoch,
                   "issued_at": now(), "expires_at": now() + 900,
-                  "rationale": (((dec or {}).get("rationale") or "model unavailable: Z -> REJECT")[:190] + (f" [{note}]" if note else ""))[:240],
+                  # The model's free-text rationale may echo private constraints (observed in A2 attempt 2), so it
+                  # never leaves this process: only a policy-generated public reason and the rationale's hash do.
+                  "rationale": (f"{final}: owner policy {pv}, agent {agent_dec or 'unavailable'}"
+                                + (f" ({note})" if note else "")
+                                + "; failed checks: " + (",".join(n for n, ok in checks if ok is not True) or "none")
+                                + f"; private rationale sha256 {sha256_hex((dec or {}).get('rationale') or '')[:16]}")[:240],
                   "model_decision_ref": rec.get("response_id")}
             schemas.validate("OwnerCommitment", cm)
             env_c = self.key.sign(crypto.DOMAINS["commitment"], cm)
@@ -366,7 +393,10 @@ def make_handler(o, admin, reader):
                     if self.headers.get("X-Token") != admin:
                         return self._send(403, {"error": "admin token required"})
                     return self._send(200, role_handlers.admin(o, self.path, body, self.server))
-                return self._send(200, role_handlers.public(o, self.path, body))
+                resp = role_handlers.public(o, self.path, body)
+                if not o.dlp_check(json.dumps(resp, sort_keys=True)):
+                    return self._send(200, {"verdict": "F", "error": "outbound DLP block (owner private data)"})
+                return self._send(200, resp)
             except crypto.VerifyError as exc:
                 o.pol.emit("ADMISSION", act=self.path, verdict="F", checks=[{"check": "signature/identity", "ok": False}],
                            reason=str(exc))

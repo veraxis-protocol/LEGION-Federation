@@ -134,7 +134,8 @@ def factory_quote(o, body):
         schemas.validate("Offer", off)
         offers.append(o.key.sign(crypto.DOMAINS["offer"], off))
     o.j.emit("OFFERS_ISSUED", offer_version=o.offer_version, designs=chosen, model_response_id=rec.get("response_id"))
-    return {"offers": offers, "rationale": (dec or {}).get("rationale"), "model_response_id": rec.get("response_id")}
+    return {"offers": offers, "rationale_sha256": sha256_hex((dec or {}).get("rationale") or ""),
+            "model_response_id": rec.get("response_id")}
 
 
 def engineer_qualify(o, body):

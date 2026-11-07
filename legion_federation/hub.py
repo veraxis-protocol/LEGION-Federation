@@ -92,7 +92,8 @@ class Hub:
             ship = next((l["amount_cents"] for l in o["lines"] if l["item"] == "shipping"), 0)
             offers[d["design_id"]] = {"amount_cents": d["amount_cents"], "shipping_cents": ship,
                                       "offer_version": o["offer_version"], "offer_id": o["offer_id"]}
-        self.trace.emit("FACTORY_OFFERS", offers=offers, rationale=r.get("rationale"), model_response_id=r.get("model_response_id"))
+        self.trace.emit("FACTORY_OFFERS", offers=offers, rationale_sha256=r.get("rationale_sha256"),
+                        model_response_id=r.get("model_response_id"))
         return offers
 
     def qualify(self, prop, coalition_id, designs):
