@@ -4,7 +4,7 @@
     "LEGION-Commerce": "Authority branch claude/wo-com-authority-005 remote tip 228899ab5b27881a324123a371336177992b1bd4 (unchanged since last inspection). The local checkout pinned here may be a later local branch; see revision field.",
     "LEGION-Formal-Core": "tag v1.0.0 (annotated tag object 1fb85527a4f25a5930feccb75a8b6808d34d5797) peels to f5ea79c. Its README names the qualified LEGION runtime d9d38cd6fd9e93e002b0b5d5135377ce1d33d8c8 (branch formal-core-r2, not on the public LEGION main)."
   },
-  "policy": "External sources are read or invoked at runtime from these pinned checkouts. No PolyForm Noncommercial source is copied into this Apache-2.0 repository.",
+  "policy": "External sources are read or invoked at runtime from these pinned checkouts. No LEGION Core source is copied into this repository. This repository itself is licensed under PolyForm Noncommercial 1.0.0 (see LICENSE); it was Apache-2.0 only in its first commit.",
   "schema": "lmf.source-pins.v1",
   "sources": {
     "LEGION": {
